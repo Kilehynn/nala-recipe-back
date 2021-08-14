@@ -26,7 +26,7 @@ export default class User extends BaseModel {
   public password: string;
 
   @column()
-  public avatar: string;
+  public avatar?: string;
 
   @column()
   public verified_account: string;
