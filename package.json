@@ -1,0 +1,20 @@
+{
+  "name": "nala-recipe-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CultOfNala/nala-recipe-back.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CultOfNala/nala-recipe-back/issues"
+  },
+  "homepage": "https://github.com/CultOfNala/nala-recipe-back#readme"
+}
