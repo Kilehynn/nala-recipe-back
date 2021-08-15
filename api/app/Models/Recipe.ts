@@ -1,4 +1,5 @@
-import { BaseModel, belongsTo, BelongsTo, column } from '@ioc:Adonis/Lucid/Orm';
+import { BaseModel, belongsTo, BelongsTo, column, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm';
+import Tag from "App/Models/Tag";
 import User from "App/Models/User";
 import { DateTime } from 'luxon';
 
@@ -46,4 +47,6 @@ export default class Recipe extends BaseModel {
 
   @column()
   public difficulty: number;
+
+
 }
