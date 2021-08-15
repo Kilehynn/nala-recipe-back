@@ -1,15 +1,34 @@
 import { BaseModel, belongsTo, BelongsTo, column, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm';
+import Ingredient from "App/Models/Ingredient";
 import Tag from "App/Models/Tag";
 import User from "App/Models/User";
 import { DateTime } from 'luxon';
 
 export default class Recipe extends BaseModel {
 
-  @manyToMany(() => Tag)
+  @manyToMany(() => Tag, {
+    localKey : 'id',
+    relatedKey : 'id',
+    pivotTimestamps : true,
+  })
   public tags: ManyToMany<typeof Tag>;
 
-  /*@manyToMany(() => User)
-  public favorites: ManyToMany<typeof User>;*/
+  @manyToMany(() => User,
+    {
+      localKey : 'id',
+      relatedKey : 'id',
+      pivotTimestamps : true,
+    })
+  public favorites: ManyToMany<typeof User>;
+
+  @manyToMany(() => Ingredient, {
+    localKey : 'id',
+    relatedKey : 'id',
+    pivotColumns : ['quantity'],
+    pivotTimestamps : true,
+  })
+  public ingredients: ManyToMany<typeof Ingredient>;
+
 
   @belongsTo(() => User, { foreignKey : 'owner_id' })
   public owner: BelongsTo<typeof User>;

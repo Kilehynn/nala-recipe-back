@@ -3,7 +3,12 @@ import Recipe from "App/Models/Recipe";
 import { DateTime } from 'luxon';
 
 export default class Tag extends BaseModel {
-  @manyToMany(() => Recipe)
+  @manyToMany(() => Recipe,
+    {
+      localKey : 'id',
+      relatedKey : 'id',
+      pivotTimestamps : true,
+    })
   public recipes: ManyToMany<typeof Recipe>;
 
   @column({ isPrimary : true })
