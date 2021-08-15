@@ -4,6 +4,14 @@ import { DateTime } from 'luxon';
 
 export default class Recipe extends BaseModel {
 
+  @manyToMany(() => Tag)
+  public tags: ManyToMany<typeof Tag>;
+
+  /*@manyToMany(() => User)
+  public favorites: ManyToMany<typeof User>;*/
+
+  @belongsTo(() => User, { foreignKey : 'owner_id' })
+  public owner: BelongsTo<typeof User>;
 
   @column({ isPrimary : true })
   public id: number;
@@ -17,8 +25,6 @@ export default class Recipe extends BaseModel {
   @column()
   public owner_id: number;
 
-  @belongsTo(() => User, { foreignKey : 'owner_id' })
-  public owner: BelongsTo<typeof User>;
 
   @column()
   public nb_person: number;

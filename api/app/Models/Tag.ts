@@ -1,7 +1,11 @@
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm';
+import { BaseModel, column, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm';
+import Recipe from "App/Models/Recipe";
 import { DateTime } from 'luxon';
 
 export default class Tag extends BaseModel {
+  @manyToMany(() => Recipe)
+  public recipes: ManyToMany<typeof Recipe>;
+
   @column({ isPrimary : true })
   public id: number;
 
